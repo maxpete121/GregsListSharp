@@ -37,6 +37,8 @@ public class Startup
 // Register dependencies for injection
     services.AddScoped<CarsRepository>();
     services.AddScoped<CarsService>();
+    services.AddScoped<HouseRepository>();
+    services.AddScoped<HouseService>();
   }
 
   private void ConfigureCors(IServiceCollection services)
