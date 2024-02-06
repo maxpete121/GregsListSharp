@@ -18,4 +18,9 @@ public class HouseService(HouseRepository repo){
         repo.DeleteHouse(houseId);
         return "House was deleted";
     }
+
+    internal House GetHouseById(string houseId){
+        House house = repo.GetHouseById(houseId);
+        return house;
+    }
 }

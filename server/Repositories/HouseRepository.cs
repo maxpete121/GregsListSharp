@@ -33,8 +33,18 @@ public class HouseRepository(IDbConnection db){
 
     internal void DeleteHouse(string houseId){
         string sql = @"
-        DELETE FROM HOUSES
+        DELETE FROM houses
         WHERE id = @houseId";
         db.Execute(sql, new{houseId});
+    }
+
+    internal House GetHouseById(string houseId){
+        string sql = @"
+        SELECT
+        *
+        FROM houses
+        WHERE id=@houseId";
+        House house = db.Query<House>(sql, new{houseId}).FirstOrDefault();
+        return house;
     }
 }

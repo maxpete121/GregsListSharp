@@ -58,4 +58,18 @@ public class HouseController : ControllerBase{
             return BadRequest(error.Message);
         }
     }
+
+    [HttpGet("{houseId}")]
+    public ActionResult<House> GetHouseById(string houseId){
+        try
+        {
+            House house = houseService.GetHouseById(houseId);
+            return Ok(house);
+        }
+        catch (Exception error)
+        {
+            
+            return BadRequest(error.Message);
+        }
+    }
 }
